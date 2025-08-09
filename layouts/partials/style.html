@@ -1,14 +1,14 @@
 <style>
   :root {
     --width: 720px;
-    --font-main: Verdana, sans-serif;
-    --font-secondary: Verdana, sans-serif;
-    --font-scale: 1em;
+    --font-main: "Source Code Pro", monospace;
+    --font-secondary: "Source Code Pro", monospace;
+    --font-scale: 0.8em;
     --background-color: #fff;
     --heading-color: #222;
     --text-color: #444;
     --link-color: #3273dc;
-    --visited-color: #8b6fcb;
+    --visited-color: #3273dc;
     --code-background-color: #f2f2f2;
     --code-color: #222;
     --blockquote-color: #222;
@@ -20,7 +20,7 @@
       --heading-color: #eee;
       --text-color: #ddd;
       --link-color: #8cc2dd;
-      --visited-color: #8b6fcb;
+      --visited-color: #8cc2dd;
       --code-background-color: #000;
       --code-color: #ddd;
       --blockquote-color: #ccc;
@@ -31,7 +31,6 @@
     font-family: var(--font-secondary);
     font-size: var(--font-scale);
     margin: auto;
-    padding: 20px;
     max-width: var(--width);
     text-align: left;
     background-color: var(--background-color);
@@ -39,6 +38,9 @@
     overflow-wrap: break-word;
     line-height: 1.5;
     color: var(--text-color);
+    display: flex;
+    min-height: 100dvh;
+    flex-direction: column;
   }
 
   h1,
@@ -49,6 +51,10 @@
   h6 {
     font-family: var(--font-main);
     color: var(--heading-color);
+  }
+
+  h1 {
+    line-height: 1.4;
   }
 
   a {
@@ -77,11 +83,13 @@
 
   time {
     font-family: monospace;
-    font-style: normal;
-    font-size: 15px;
+    font-style: italic;
+    font-size: 0.8rem;
   }
 
   main {
+    padding: 0 1rem;
+    flex: 1;
     line-height: 1.6;
   }
 
@@ -91,7 +99,8 @@
 
   hr {
     border: 0;
-    border-top: 1px dashed;
+    border-top: 1px solid #ccc;
+    margin: 1.5rem 0;
   }
 
   img {
@@ -113,9 +122,14 @@
     font-style: italic;
   }
 
+  header {
+    padding: 1rem;
+  }
+
   footer {
-    padding: 25px 0;
+    padding: 3rem 0 1rem;
     text-align: center;
+    font-size: 0.7rem;
   }
 
   .title:hover {
@@ -124,6 +138,43 @@
 
   .title h1 {
     font-size: 1.5em;
+  }
+
+  .title h2 {
+    font-size: 1.5em;
+    margin: 0;
+  }
+
+  .header-nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  /* Smaller title when not on home page (when back button is present) */
+  .header-nav.not-home .title h2 {
+    font-size: 1.2em;
+  }
+
+  .back-button {
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    color: var(--text-color);
+    padding: 8px;
+    margin-left: -8px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+  }
+
+  .back-button:hover {
+    background-color: var(--code-background-color);
+    color: var(--heading-color);
+    text-decoration: none;
+  }
+
+  .title {
+    flex: 1;
   }
 
   .inline {
@@ -141,22 +192,20 @@
     overflow-x: auto;
   }
 
-  /* blog post list */
-  ul.blog-posts {
+  .highlight pre {
+    background-color: var(--code-background-color) !important;
+  }
+
+  .blog-posts {
     list-style-type: none;
     padding: unset;
-  }
-
-  ul.blog-posts li {
     display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
-  ul.blog-posts li span {
-    flex: 0 0 130px;
+  .blog-posts li {
+    display: flex;
+    flex-direction: column;
   }
-
-  ul.blog-posts li a:visited {
-    color: var(--visited-color);
-  }
-
 </style>

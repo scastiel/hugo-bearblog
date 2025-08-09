@@ -1,3 +1,17 @@
-{{ define "main" }}
-{{ .Content }}
+{{ define "main" }} {{ .Content }}
+
+<hr />
+<h3>Posts</h3>
+<ul class="blog-posts">
+  {{ range where .Site.RegularPages "Section" "blog" }}
+  <li>
+    <time datetime='{{ .Date.Format "2006-01-02" }}'>
+      {{ .Date.Format (default "02 Jan, 2006" .Site.Params.dateFormat) }}
+    </time>
+    <a href="{{ .Permalink }}">{{ .Title }}</a>
+  </li>
+  {{ else }}
+  <li>No posts yet</li>
+  {{ end }}
+</ul>
 {{ end }}

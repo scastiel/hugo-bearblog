@@ -1,9 +1,11 @@
 <style>
   :root {
-    --width: 720px;
-    --font-main: "Source Code Pro", monospace;
-    --font-secondary: "Source Code Pro", monospace;
-    --font-scale: 0.8em;
+    --width: 768px;
+    --font-main: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo,
+      Consolas, "DejaVu Sans Mono", monospace;
+    --font-secondary: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo,
+      Consolas, "DejaVu Sans Mono", monospace;
+    --font-scale: 12px;
     --background-color: #fff;
     --heading-color: #222;
     --text-color: #444;
@@ -12,6 +14,12 @@
     --code-background-color: #f2f2f2;
     --code-color: #222;
     --blockquote-color: #222;
+  }
+
+  @media screen and (min-width: 768px) {
+    :root {
+      --font-scale: 14px;
+    }
   }
 
   @media (prefers-color-scheme: dark) {
@@ -190,6 +198,8 @@
     margin-block-start: 1em;
     margin-block-end: 1em;
     overflow-x: auto;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 
   .highlight pre {

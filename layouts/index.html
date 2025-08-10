@@ -3,7 +3,7 @@
 <hr />
 <h3>Posts</h3>
 <ul class="blog-posts">
-  {{ range where .Site.RegularPages "Section" "blog" }}
+  {{ range .Site.RegularPages }}
   <li>
     <time datetime='{{ .Date.Format "2006-01-02" }}'>
       {{ .Date.Format (default "02 Jan, 2006" .Site.Params.dateFormat) }}

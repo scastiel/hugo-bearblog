@@ -11,7 +11,7 @@
     --text-color: #444;
     --link-color: #3273dc;
     --visited-color: #3273dc;
-    --code-background-color: #f2f2f2;
+    --code-background-color: #00000009;
     --code-color: #222;
     --blockquote-color: #222;
   }
@@ -24,12 +24,12 @@
 
   @media (prefers-color-scheme: dark) {
     :root {
-      --background-color: #01242e;
+      --background-color: #081d27;
       --heading-color: #eee;
       --text-color: #ddd;
       --link-color: #8cc2dd;
       --visited-color: #8cc2dd;
-      --code-background-color: #000;
+      --code-background-color: #ffffff09;
       --code-color: #ddd;
       --blockquote-color: #ccc;
     }
@@ -191,19 +191,27 @@
 
   .highlight,
   .code {
-    padding: 1px 15px;
-    background-color: var(--code-background-color);
     color: var(--code-color);
-    border-radius: 3px;
     margin-block-start: 1em;
     margin-block-end: 1em;
+    border-radius: 4px;
+    padding: 0;
     overflow-x: auto;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
   }
 
   .highlight pre {
+    width: fit-content;
+    border-radius: 4px;
+    padding: 1em;
+    margin: 0;
     background-color: var(--code-background-color) !important;
+    min-width: 100%;
+  }
+
+  .highlight code {
+    padding: 0;
   }
 
   .blog-posts {
